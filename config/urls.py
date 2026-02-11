@@ -19,7 +19,11 @@ from django.urls import path, include
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+
     # Djoser endpoints for registration and login
     path('auth/', include('djoser.urls')),
     path('auth/', include('djoser.urls.jwt')),
+
+    # Endpoints for courses app
+    path('api/', include('courses.urls')),
 ]
