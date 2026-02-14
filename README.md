@@ -89,12 +89,12 @@ Follow these steps to get the project running on your local machine.
 python manage.py migrate
 ```
 
-6. **Create Admin User
+6. **Create Admin User**
 ```bash
 python mnage.py createsuperuser
 ```
 
-7. Run the Server
+7. **Run the Server**
 ```bash
 python manage.py runserver
 ```
@@ -103,7 +103,7 @@ Access the API at `http://127.0.0.1:8000/`.
 
 ## API Endpoints
 
-### Authentication
+### 1. Authentication
 
 * `POST /auth/users/` - Register a new user
 * `POST /auth/jwt/create/` - Login (Get Access / Refresh Tokens)
@@ -113,7 +113,7 @@ Access the API at `http://127.0.0.1:8000/`.
 _Requires Admin role for Create/Update/Delete._
 
 | Method | Endpoint | Description |
-| :--- | : --- | :--- |
+| :--- | :--- | :--- |
 | GET | `/api/courses/` | List all available training courses. |
 | POST | `/api/courses/` | Create a new course syllabus. |
 | GET | `/api/courses/{id}/` | View specific course details. |
@@ -124,7 +124,7 @@ _Requires Admin role for Create/Update/Delete._
 _Links Courses to Instructors. Requires Admin role for changes._
 
 | Method | Endpoint | Description |
-| :--- | : --- | :--- |
+| :--- | :--- | :--- |
 | GET | `/api/cohorts/` | List all active/upcoming cohorts. |
 | POST | `/api/cohorts/` | Schedule a new cohort instance. |
 | GET | `/api/cohorts/{id}/` | View cohort details (including instructor name). |
