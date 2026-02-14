@@ -68,4 +68,4 @@ Access the API at `http://127.0.0.1:8000/`.
 ### Authentication
 * `POST /auth/users/` - Register a new user
 * `POST /auth/jwt/create/` - Login (Get Access / Refresh Tokens)
-*(More endpoints for courses and Cohorts coming in Week 2)*
+
