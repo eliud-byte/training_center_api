@@ -39,7 +39,7 @@ Follow these steps to get the project running on your local machine.
     ```
 4.  **Environment Variables**
     Create a `.env` file in the root directory and add your databse credentials:
-    '''text
+    ```text
     DEBUG=True
     SECRET_KEY=your_secret_key
     DATABASE_URL=postgres://YOUR_DB_USER:YOUR_DB_PASSWORD@127.0.0.1:5432/training_center_db
