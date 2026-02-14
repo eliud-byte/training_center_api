@@ -3,6 +3,7 @@
 A robust backend API for managing a vocational training center. This system handles User Authentication (Role-Based), Course Management, Cohort Scheduling, and Student Enrollment.
 
 ## Key Features
+
 - **Role-Based Access Control (RBAC):** Distinct permissions for Admins, Instructors, and Students.
 - **Secure Authentication:** JWT (JSON Web Tokens) implementation via Djoser.
 - **course Catalog:** Admins can manage course templates (titles, descriptions, pricing).
@@ -11,6 +12,7 @@ A robust backend API for managing a vocational training center. This system hand
 - **Human-Readable API: Nested serializers provide detailed text responses (e.g., "Python 101") instead of just raw Database IDs.
 
 ## Tech Stack
+
 * **Language:** Python 3.12+
 * **Framework:** Django 6 & Django REST Framework (DRF)
 * **Database:** PostgreSQL
@@ -18,6 +20,7 @@ A robust backend API for managing a vocational training center. This system hand
 - **Tools:** Git, Pip
 
 ## Database Schema
+
 The project uses a relational database structure designed for scalability.
 ```Code snippet
 erDiagram
@@ -46,13 +49,16 @@ erDiagram
 ```
 
 ## Local Setup Guide
+
 Follow these steps to get the project running on your local machine.
 
 ### 1. Prerequisites
+
 * Python installed
 * PostgreSQL installed and running
 
 ### 2. Installation
+
 1.  **Clone the repository** (if using git)
     ```bash
     git clone <repo-url>
@@ -96,12 +102,16 @@ python manage.py runserver
 Access the API at `http://127.0.0.1:8000/`.
 
 ## API Endpoints
+
 ### Authentication
+
 * `POST /auth/users/` - Register a new user
 * `POST /auth/jwt/create/` - Login (Get Access / Refresh Tokens)
 
 ### 2. Courses (The Catalog)
+
 _Requires Admin role for Create/Update/Delete._
+
 | Method | Endpoint | Description |
 | :--- | : --- | :--- |
 | GET | `/api/courses/` | List all available training courses. |
@@ -110,7 +120,9 @@ _Requires Admin role for Create/Update/Delete._
 | PATCH | `/api/courses/{id}/` | Update course pricing or description. |
 
 ### 3. Cohorts(Scheduled Classes)
+
 _Links Courses to Instructors. Requires Admin role for changes._
+
 | Method | Endpoint | Description |
 | :--- | : --- | :--- |
 | GET | `/api/cohorts/` | List all active/upcoming cohorts. |
@@ -118,11 +130,13 @@ _Links Courses to Instructors. Requires Admin role for changes._
 | GET | `/api/cohorts/{id}/` | View cohort details (including instructor name). |
 
 ## Permissions
+
 - **Public (Anon):** Can view (GET) Courses and Cohorts.
 - **Authenticated Users:** Can view their own profiles.
 - **Admins:** Full access to Create (POST), Update(PUT), and Delete (DELETE) resources.
 
 ## Contributing
+
 1. Fork the repository
 2. Create your feature branch (`git checkout -b feature/AmazingFeture`).
 3. Commit your changes (`git commit -m 'Add some AmazingFeature`).
