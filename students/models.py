@@ -1,3 +1,4 @@
+from django.core.exceptions import ValidationError
 from django.db import models
 from django.conf import settings
 from courses.models import Cohort
@@ -29,4 +30,21 @@ class Enrollment(models.Model):
         unique_together = ['student', 'cohort'] # Prevents double-booking
 
     def __str__(self):
-        return f"{self.student} --> {self.cohort}"
+        return f"{self.student} --> {self.cohort}"  
+
+    def clean(self):
+        # Prevent Over-Enrollment
+        # Count ACTIVE or PENDING enrollments for this cohort via the model manager
+        current_count = self.__class__.objects.filter(
+            cohort=self.cohort
+        ).exclude(
+            status__in=['DROPPED', 'COMPLETED']
+        ).count()
+
+        # If this is a NEW enrollment (no ID yet) and we are full:
+        if not self.pk and current_count >= self.cohort.capacity:
+            raise ValidationError(f"Sorry, {self.cohort.name} is full (Capacity: {self.cohort.capacity}).")
+        
+    def save(self, *args, **kwargs):
+        self.clean() # Force the clean check to run every time we save
+        super().save(*args, **kwargs)
