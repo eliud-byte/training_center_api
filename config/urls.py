@@ -26,4 +26,7 @@ urlpatterns = [
 
     # Endpoints for courses app
     path('api/', include('courses.urls')),
+
+    # Endpoints for students app
+    path('api/', include('students.urls')),
 ]
