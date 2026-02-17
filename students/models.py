@@ -48,3 +48,16 @@ class Enrollment(models.Model):
     def save(self, *args, **kwargs):
         self.clean() # Force the clean check to run every time we save
         super().save(*args, **kwargs)
+
+class Grade(models.Model):
+    enrollment = models.OneToOneField(
+        Enrollment,
+        on_delete=models.CASCADE,
+        related_name='grade'
+    )
+    score = models.DecimalField(max_digits=5, decimal_places=2)
+    feedback = models.TextField(blank=True, null=True)
+    graded_at = models.DateTimeField(auto_now=True)
+
+    def __str__(self):
+        return f"Grade for {self.enrollment.student.username} - {self.score}"
