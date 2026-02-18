@@ -59,5 +59,15 @@ class Grade(models.Model):
     feedback = models.TextField(blank=True, null=True)
     graded_at = models.DateTimeField(auto_now=True)
 
+    def save(self, *args, **kwargs):
+        # 1. Save the grade normally first
+        super().save(*args, **kwargs)
+
+        # 2. Automatically update the linked Enrollment
+        if self.enrollment.status != 'COMPLETED':
+            self.enrollment.status = 'COMPLETED'
+            self.enrollment.save()
+            print(f"Auto-completed enrollment for {self.enrollment.student}")
+
     def __str__(self):
         return f"Grade for {self.enrollment.student.username} - {self.score}"
