@@ -37,6 +37,11 @@ DEBUG = env('DEBUG')
 ALLOWED_HOSTS = []
 
 REST_FRAMEWORK = {
+    'DEFAULT_FILTER_BACKENDS': [
+        'django_filters.rest_framework.DjangoFilterBackend',
+        'rest_framework.filters.SearchFilter', # For text search
+        'rest_framework.filters.OrderingFilter', # For sorting (A-Z, Price Low-High)
+    ],
     'DEFAULT_AUTHENTICATION_CLASSES': (
         'rest_framework.authentication.SessionAuthentication',
         'rest_framework_simplejwt.authentication.JWTAuthentication',
@@ -58,6 +63,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'rest_framework',
     'djoser',
+    'django_filters',
     'users',
     'courses',
     'students',
