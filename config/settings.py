@@ -42,6 +42,9 @@ REST_FRAMEWORK = {
         'rest_framework.filters.SearchFilter', # For text search
         'rest_framework.filters.OrderingFilter', # For sorting (A-Z, Price Low-High)
     ],
+    'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.PageNumberPagination',
+    'PAGE_SIZE': 10, # each pae will show 10 items
+
     'DEFAULT_AUTHENTICATION_CLASSES': (
         'rest_framework.authentication.SessionAuthentication',
         'rest_framework_simplejwt.authentication.JWTAuthentication',

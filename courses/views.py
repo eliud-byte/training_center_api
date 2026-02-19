@@ -26,3 +26,16 @@ class CohortViewSet(viewsets.ModelViewSet):
     queryset = Cohort.objects.all()
     serializer_class = CohortSerializer
     permission_classes = [IsAdminOrReadOnly]
+
+    # Enable the backends
+    filter_backends = [DjangoFilterBackend, SearchFilter, OrderingFilter]
+
+    # Exact matches (Good for IDs and Dates)
+    filterset_fields = ['course', 'instructor', 'start_date']
+
+    # Text search (Search by the name of the cohort)
+    search_fields = ['name']
+
+    # Sorting (Order by start date or capacity)
+    ordering_fields = ['start_date', 'capacity']
+    ordering = ['start_date'] # Default sorting
