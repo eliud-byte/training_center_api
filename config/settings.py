@@ -57,6 +57,7 @@ REST_FRAMEWORK = {
         'anon': '10/minute',  # Unauthenticated users
         'user': '100/minute', # Logged-in users
     },
+    'DEFAULT_SCHEMA_CLASS': 'drf_spectacular.openapi.AutoSchema',
 }
 
 SIMPLE_JWT = {
@@ -78,6 +79,7 @@ INSTALLED_APPS = [
     'users',
     'courses',
     'students',
+    'drf_spectacular',
 ]
 
 MIDDLEWARE = [
@@ -156,3 +158,10 @@ STATIC_URL = 'static/'
 
 # Point to the app and the model name
 AUTH_USER_MODEL = 'users.User'
+
+SPECTACULAR_SETTINGS = {
+    'TITLE': 'Training Center Management API',
+    'DESCRIPTION': 'A complete backend system for managing courses, and student grades.',
+    'VERSION': '1.0.0',
+    'SERVE_INCLUDE_SCHEMA': False,
+}
