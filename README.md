@@ -12,8 +12,12 @@ A robust, RESTful backend API designed to manage vocational training centers. Th
 - **Self_Service Enrollments:** Students can browse and enroll in cohorts directly via the API.
 - **Capacity Enforcement:** Automated "Bouncer" logic prevents over-enrollment beyond  cohort's set capacity.
 - **Academic Grading:** Instructors can assign scores and feedback to specific enrollments.
-- **Automated Workflow:** Enrollment status automatically transitions to `COMPLETED` once a grade is posted.
+- **Data Consistency:** Overridden `save()` methods and signals ensure that student statuses are always synchronized with their grades.
 - **Human-Readable API:** Nested serializers show student names, cohort titles, and even grades directly inside enrollment objects.
+- **Interactive Documentation:** Fully documented with Swagger UI and ReDoc for esy testing and Intergration.
+- **Advanced Filtering:** Search course by title/description, filter by price, and find cohorts by start date or instructor.
+- **Smart Pagination:** All list endpoints are paginated (10 items per page) to ensure high performance evven with large datasets.
+- **Rate Limiting:** Built-in protection against brute-force attacks and bot scraping (10 req/min for guests, 100 req/min for users).
 
 ## 🛠 Tech Stack
 
@@ -124,7 +128,7 @@ _Links Courses to Instructors. Requires Admin role for changes._
 4. Push to the branch (`git push origin feature/AmazingFeature`).
 5. Open a Pull Request.
 
-## Local Setup Guide
+## Setup & Documentation
 
 Follow these steps to get the project running on your local machine.
 
@@ -170,7 +174,6 @@ Follow these steps to get the project running on your local machine.
 5. **Initialize the Database**
 
     ```bash
-    python manage.py makemigrations
     python manage.py migrate
     ```
 
@@ -187,3 +190,12 @@ Follow these steps to get the project running on your local machine.
     ```
 
     Access the API at `http://127.0.0.1:8000/`.
+
+8. **Access Interactive Docs**
+
+    - **Swagger:** `/api/docs/` (Best for testing)
+    - **ReDoc:** `/api/redoc/` (Best for reading)
+
+9. **Filtering Example**
+
+    `GET /api/courses/?search-Python&ordering=-price`
