@@ -1,6 +1,6 @@
 # 🎓 Training Center Management API
 
-**A hogh-performance, secure backend for modern vocational institutions.**
+**A high-performance, secure backend for modern vocational institutions.**
 
 This API manages the full lifecycle of a training center, from course creation and student enrollment to academic grading and automated progress tracking.
 
