@@ -115,10 +115,10 @@ WSGI_APPLICATION = 'config.wsgi.application'
 # This looks for a variable named 'DATABASE_URL' in .env
 # If it doesn't find it, it falls back to SQLite
 DATABASES = {
-    'default': dj_database_url.config(
-        default=f"sqlite:///{BASE_DIR / 'db.sqlite3'}",
-        conn_max_age=600,
-    )
+    'default': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3'
+    }
 }
 
 
