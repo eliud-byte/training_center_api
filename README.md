@@ -4,6 +4,9 @@
 
 This robust RESTFUL API built with **Django** and **Django REST Framework (DRF)** designed to manage educational workflows, including student enrollments, course management, cohort tracking, and grading systems.
 
+<img width="1362" height="694" alt="Screenshot from 2026-02-26 17-52-37" src="https://github.com/user-attachments/assets/d451eab8-a8fd-422b-a9aa-501b0fcf75f9" />
+
+
 ## 🚀 Live Demo
 
 ### API Documentation (Swagger UI)
