@@ -6,7 +6,6 @@ This robust RESTFUL API built with **Django** and **Django REST Framework (DRF)*
 
 <img width="1362" height="694" alt="Screenshot from 2026-02-26 17-52-37" src="https://github.com/user-attachments/assets/d451eab8-a8fd-422b-a9aa-501b0fcf75f9" />
 
-
 ## 🚀 Live Demo
 
 ### API Documentation (Swagger UI)
@@ -14,6 +13,11 @@ This robust RESTFUL API built with **Django** and **Django REST Framework (DRF)*
 <https://eliud.pythonanywhere.com/>
 
 *Note: The root URL automatically redirects to the interactive API documentation.*
+
+### Testing Credentials
+
+- **Username:** `reviewer_demo`
+- **Password:** `Testing123!`
 
 ## 🛠 Features
 
